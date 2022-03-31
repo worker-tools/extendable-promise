@@ -32,7 +32,6 @@ describe('ExtendablePromise', () => {
     const p = new ExtendablePromise(t1)
     p.waitUntil(timeout(10))
     await t1;
-    expect(Date.now() - start).toBeLessThan(5)
     expect(p.settled).toBe(false)
     await p
     expect(Date.now() - start).toBeGreaterThanOrEqual(9)
