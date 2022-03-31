@@ -35,7 +35,7 @@ describe('ExtendablePromise', () => {
     expect(Date.now() - start).toBeLessThan(5)
     expect(p.settled).toBe(false)
     await p
-    expect(Date.now() - start).toBeGreaterThanOrEqual(10)
+    expect(Date.now() - start).toBeGreaterThanOrEqual(9)
   })
 
   test('settled property', async () => {
