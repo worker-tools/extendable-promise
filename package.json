@@ -27,7 +27,7 @@
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",
   "dependencies": {
-    "@worker-tools/resolvable-promise": "workspace:0.0.1"
+    "@worker-tools/resolvable-promise": "^0.1.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
@@ -38,11 +38,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worker-tools/router.git"
+    "url": "git+https://github.com/worker-tools/extendable-promise.git"
   },
   "bugs": {
-    "url": "https://github.com/worker-tools/router/issues"
+    "url": "https://github.com/worker-tools/extendable-promise/issues"
   },
-  "homepage": "https://github.com/worker-tools/router#readme",
+  "homepage": "https://github.com/worker-tools/extendable-promise#readme",
   "keywords": []
 }
