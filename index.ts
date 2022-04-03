@@ -1,4 +1,4 @@
-import { ResolvablePromise } from '@worker-tools/resolvable-promise';
+import { ResolvablePromise } from '../resolvable-promise/index.ts';
 
 // const queueMicrotask = typeof globalThis.queueMicrotask === "function"
 //   ? globalThis.queueMicrotask
@@ -36,13 +36,13 @@ export class ExtendablePromise<T = unknown> /* extends Promise<T[]> */ implement
   };
 
   waitUntil(f?: T | PromiseLike<T>) {
-    if (globalThis.process?.env?.NODE_ENV === 'development' || (<any>globalThis).DEBUG) {
+    if ((<any>globalThis).process?.env?.NODE_ENV === 'development' || (<any>globalThis).DEBUG) {
       if (this.#promise.settled) {
         console.warn("Can't add promise to an ExtendablePromise that has already settled. This is a no-op");
       }
     }
     if (f) {
-      let i = this.#numAdded;
+      const i = this.#numAdded;
       Promise.resolve(f)
         .then(v => this.#fulfill(i, v), r => this.#reject(i, r))
       this.#numAdded++;
