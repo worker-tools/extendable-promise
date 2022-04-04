@@ -17,12 +17,6 @@ await build({
   outDir: "./npm",
   shims: {},
   test: false,
-  // mappings: {
-  //   "https://esm.sh/cookie-store-interface@0.1.1/index.js": {
-  //     name: "cookie-store-interface",
-  //     version: "^0.1.1",
-  //   },
-  // },
   package: {
     // package.json properties
     name: `@worker-tools/${name}`,
@@ -47,6 +41,12 @@ await build({
   compilerOptions: {
     sourceMap: true,
   },
+  mappings: {
+    'https://raw.githubusercontent.com/worker-tools/resolvable-promise/master/index.ts': {
+      name: '@worker-tools/resolvable-promise',
+      version: '^0.2.0-pre.0',
+    }
+  }
 });
 
 // post build steps
