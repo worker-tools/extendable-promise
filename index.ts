@@ -1,4 +1,4 @@
-import { ResolvablePromise } from 'https://raw.githubusercontent.com/worker-tools/resolvable-promise/master/index.ts';
+import { ResolvablePromise } from 'https://ghuc.cc/worker-tools/resolvable-promise/index.ts';
 
 // const queueMicrotask = typeof globalThis.queueMicrotask === "function"
 //   ? globalThis.queueMicrotask
