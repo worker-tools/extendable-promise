@@ -45,7 +45,7 @@ await build({
   mappings: {
     'https://ghuc.cc/worker-tools/resolvable-promise/index.ts': {
       name: '@worker-tools/resolvable-promise',
-      version: '^0.2.0-pre.0',
+      version: '^0.2.0-pre.2',
     }
   }
 });

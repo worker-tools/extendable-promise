@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { ResolvablePromise } from 'https://ghuc.cc/worker-tools/resolvable-promise/index.ts';
 
 // const queueMicrotask = typeof globalThis.queueMicrotask === "function"
@@ -36,11 +37,11 @@ export class ExtendablePromise<T = unknown> /* extends Promise<T[]> */ implement
   };
 
   waitUntil(f?: T | PromiseLike<T>) {
-    if ((<any>globalThis).process?.env?.NODE_ENV === 'development' || (<any>globalThis).DEBUG) {
-      if (this.#promise.settled) {
-        console.warn("Can't add promise to an ExtendablePromise that has already settled. This is a no-op");
-      }
-    }
+    // if ((<any>globalThis).process?.env?.NODE_ENV === 'development' || (<any>globalThis).DEBUG) {
+    //   if (this.#promise.settled) {
+    //     console.warn("Can't add promise to an ExtendablePromise that has already settled. This is a no-op");
+    //   }
+    // }
     if (f) {
       const i = this.#numAdded;
       Promise.resolve(f)
