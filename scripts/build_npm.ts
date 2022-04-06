@@ -40,6 +40,7 @@ await build({
   packageManager: 'pnpm',
   compilerOptions: {
     sourceMap: true,
+    target: 'ES2019',
   },
   mappings: {
     'https://ghuc.cc/worker-tools/resolvable-promise/index.ts': {
