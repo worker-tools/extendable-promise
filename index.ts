@@ -27,14 +27,14 @@ export class ExtendablePromise<T = unknown> /* extends Promise<T[]> */ implement
     if (++this.#numSettled === this.#numAdded) {
       this.#promise.resolve(this.#values);
     }
-  };
+  }
 
   #reject(i: number, reason: any) {
     this.#values[i] = { status: 'rejected', reason };
     if (++this.#numSettled === this.#numAdded) {
       this.#promise.resolve(this.#values);
     }
-  };
+  }
 
   waitUntil(f?: T | PromiseLike<T>) {
     // if ((<any>globalThis).process?.env?.NODE_ENV === 'development' || (<any>globalThis).DEBUG) {
@@ -48,7 +48,7 @@ export class ExtendablePromise<T = unknown> /* extends Promise<T[]> */ implement
         .then(v => this.#fulfill(i, v), r => this.#reject(i, r))
       this.#numAdded++;
     }
-  };
+  }
 
   get settled() { return this.#promise.settled }
 
@@ -61,10 +61,18 @@ export class ExtendablePromise<T = unknown> /* extends Promise<T[]> */ implement
   finally(onfinally?: (() => void) | null): Promise<PromiseSettledResult<T>[]> {
     return this.#promise.finally(onfinally);
   }
-  get [Symbol.toStringTag]() { return 'ExtendablePromise' }
+
+  [Symbol.toStringTag] = 'ExtendablePromise'
 }
 
-// TODO: Not good for performance
+// // It's complicated..
+// Object.defineProperty(ExtendablePromise.prototype, Symbol.toStringTag, {
+//   get() { return 'ExtendablePromise' },
+//   enumerable: false,
+//   configurable: false,
+// })
+
+// TODO: Not good for performance!?
 // ExtendablePromise.prototype = Object.getPrototypeOf(Promise);
 
 export interface PromiseFulfilledResult<T> {
