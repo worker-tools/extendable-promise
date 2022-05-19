@@ -58,7 +58,7 @@ export class ExtendablePromise<T = unknown> implements Promise<PromiseSettledRes
     return this.#promise.finally(onfinally);
   }
 
-  [Symbol.toStringTag] = 'ExtendablePromise'
+  readonly [Symbol.toStringTag] = 'ExtendablePromise'
 }
 
 export interface PromiseFulfilledResult<T> {
