@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
-import { ResolvablePromise } from 'https://deno.land/x/resolvable_promise/index.ts';
+import { ResolvablePromise } from 'https://ghuc.cc/worker-tools/resolvable-promise/index.ts';
 
 // const queueMicrotask = typeof globalThis.queueMicrotask === "function"
 //   ? globalThis.queueMicrotask
