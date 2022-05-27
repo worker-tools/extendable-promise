@@ -32,7 +32,7 @@ test('promise settled result failure', async () => {
   assertEquals(await new ExtendablePromise(Promise.reject(Error())), [{ status: 'rejected', reason: Error() }])
 })
 
-const timeout = (n: number) => new Promise(r => setTimeout(r, n))
+const timeout = (n?: number) => new Promise(r => setTimeout(r, n))
 
 test('extending the promise', async () => {
   const start = Date.now()
